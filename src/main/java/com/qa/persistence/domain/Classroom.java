@@ -1,6 +1,7 @@
 package com.qa.persistence.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,26 +11,33 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Class implements Serializable{
+public class Classroom implements Serializable{
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private int id;
 	private String classroomID;
 	private String trainer;
-	@OneToMany(mappedBy="classroomID")
-	private Set<Trainee> trainees;
+	 @OneToMany(mappedBy="classroomID")
+	private List<Trainee> trainee;
+
+	 
 	
 
-	public Class() {
-		
-		
+	public List<Trainee> getTrainees() {
+		return trainee;
 	}
-	public Class(String trainer, String classroomID) {
-		this.trainer = trainer;
-		this.classroomID=classroomID;
-
+	
+	public void setTrainees(List<Trainee> trainees) {
+		this.trainee = trainees;
+	}
+	public Classroom() {
+	
+}
 		
+	public Classroom(String trainer, String classroomID) {
+		this.trainer = trainer;
+		this.classroomID=classroomID;	
 	}
 	public int getId() {
 		return id;

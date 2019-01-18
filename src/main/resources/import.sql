@@ -1,2 +1,2 @@
-INSERT INTO CLASS(id,classroomID,trainer)VALUES(1 ,"1","Gavin Harris")
-INSERT INTO TRAINEE(id,traineeName,traineeID,classroomID)VALUES(1 ,"Jim","1","1")
+INSERT INTO CLASSROOM(id,classroomID,trainer,trainee)VALUES(1 ,"1","Gavin Harris")
+INSERT INTO TRAINEE(id,classroomID,traineeID,traineeName)VALUES(1 ,"1","1","Jim")

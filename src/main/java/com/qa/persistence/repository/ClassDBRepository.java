@@ -17,7 +17,7 @@ import javax.transaction.Transactional;
 
 import org.apache.log4j.Logger;
 
-import com.qa.persistence.domain.Class;
+import com.qa.persistence.domain.Classroom;
 import com.qa.persistence.domain.Trainee;
 // import com.qa.business.service.AccountService;
 import com.qa.util.JSONUtil;
@@ -36,15 +36,15 @@ public class ClassDBRepository implements ClassRepository ,TraineeRepository {
 	@Override
 	public String getAllClasses() {
 		
-	Query query = manager.createQuery("Select c FROM Class c");
-	Collection<Class> classes = (Collection<Class>) query.getResultList();
+	Query query = manager.createQuery("Select c FROM Classroom c");
+	Collection<Classroom> classes = (Collection<Classroom>) query.getResultList();
 	return util.getJSONForObject(classes);
 	}
 	
 	@Override
 	@Transactional(REQUIRED)
 	public String createClass(String clas) {
-		Class anClass = util.getObjectForJSON(clas, Class.class);
+		Classroom anClass = util.getObjectForJSON(clas, Classroom.class);
 		manager.persist(anClass);
 		String classTrainer=anClass.getTrainer();
 		return "{\"message\": \"Class has been sucessfully added. Trainer: "+ classTrainer+" \"}";
@@ -53,7 +53,7 @@ public class ClassDBRepository implements ClassRepository ,TraineeRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteClass(int ID) {
-		Class classInDB = findClass(ID);
+		Classroom classInDB = findClass(ID);
 	if (classInDB != null ) {
 			manager.remove(classInDB);
 		return "{\"message\": \"Class sucessfully deleted\"}";
@@ -64,14 +64,14 @@ public class ClassDBRepository implements ClassRepository ,TraineeRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String updateClass(int ID, String clas) {
-		Class accountInDB = findClass(ID);
+		Classroom accountInDB = findClass(ID);
 		 deleteClass(ID);
 		 createClass(clas);
 		 return "{\"message\": \"Trainee sucessfully updated\"}";
 	}
 
-	private Class findClass(int Id) {
-		return manager.find(Class.class, Id);
+	private Classroom findClass(int Id) {
+		return manager.find(Classroom.class, Id);
 	}
 	
 	@Override
