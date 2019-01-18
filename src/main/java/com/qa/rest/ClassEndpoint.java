@@ -11,8 +11,8 @@ import javax.ws.rs.Produces;
 
 import org.apache.log4j.Logger;
 import com.qa.service.TraineeService;
-@Path("/trainee")
-public class TraineeEndpoint {
+@Path("/class")
+public class ClassEndpoint {
 
 	@Inject
 	private TraineeService service;

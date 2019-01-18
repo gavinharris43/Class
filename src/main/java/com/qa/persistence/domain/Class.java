@@ -43,11 +43,28 @@ public class Class {
 //		this.location=location;
 		
 	}
-
-
-
-
-	
-	
-
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getClassroomID() {
+		return classroomID;
+	}
+	public void setClassroomID(String classroomID) {
+		this.classroomID = classroomID;
+	}
+	public String getTrainer() {
+		return trainer;
+	}
+	public void setTrainer(String trainer) {
+		this.trainer = trainer;
+	}
+	public String getTrainees() {
+		return trainees;
+	}
+	public void setTrainees(String trainees) {
+		this.trainees = trainees;
+	}
 }
