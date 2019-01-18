@@ -1,10 +1,19 @@
 package com.qa.persistence.domain;
 
+import java.io.Serializable;
+import java.security.acl.Group;
+import java.util.Set;
+
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
-public class Trainee {
+@Entity
+public class Trainee implements Serializable{
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
@@ -12,6 +21,7 @@ public class Trainee {
 	private String traineeName;
 	private String traineeID;
 	private String classroomID;
+	
 	
 	public Trainee() {
 		
