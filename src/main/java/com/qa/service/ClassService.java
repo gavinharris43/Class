@@ -1,12 +1,13 @@
-package com.qa.persistence.repository;
+package com.qa.service;
 
 import java.util.Map;
 
-
-public interface ClassRepository {
+public interface ClassService  {
 
 	String getAllClasses();
 	String deleteClass(int accountID);
 	String updateClass(int accountID, String account);
 	String createClass(String account);
 }
+
+

@@ -17,28 +17,28 @@ public class TraineeEndpoint {
 	@Inject
 	private TraineeService service;
 	
-	@Path("/getAllAccounts/{cId}")
+	@Path("/getAllTraineesFromClass/{cId}")
 	@GET
 	@Produces({ "application/json" })
 	public String getAllTraineesFromClass(@PathParam("cId") String cId) {
 		return service.getAllTraineesFromClass(cId);
 	}
 
-	@Path("/createAccount")
+	@Path("/createTrainee")
 	@POST
 	@Produces({ "application/json" })
 	public String createTrainee(String trainee) {
 		return service.createTrainee(trainee);
 	}
 
-	@Path("/deleteAccount/{id}")
+	@Path("/deleteTrainee/{id}")
 	@DELETE
 	@Produces({ "application/json" })
 	public String deleteTrainee(@PathParam("id") int id) {
 		return service.deleteTrainee(id);
 	}
 	
-	@Path("/updateAccount/{id}")
+	@Path("/updateTrainee/{id}")
 	@PUT
 	@Produces({ "application/json" })
 	public String updateTrainee(@PathParam("id") int id, String trainee) {

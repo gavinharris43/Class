@@ -33,7 +33,7 @@ public class ClassDBRepository implements ClassRepository {
 	private JSONUtil util;
 	
 	@Override
-	public String getAllClasses(String classID) {
+	public String getAllClasses() {
 		
 	Query query = manager.createQuery("Select a FROM Class a");
 	Collection<Class> classes = (Collection<Class>) query.getResultList();

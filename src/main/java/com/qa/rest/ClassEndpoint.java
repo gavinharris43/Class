@@ -10,42 +10,44 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 import org.apache.log4j.Logger;
+
+import com.qa.service.ClassService;
 import com.qa.service.TraineeService;
 @Path("/class")
 public class ClassEndpoint {
 
 	@Inject
-	private TraineeService service;
+	private ClassService service;
 	
-	@Path("/getAllAccounts/{cId}")
+	@Path("/getAllClasses/")
 	@GET
 	@Produces({ "application/json" })
-	public String getAllTraineesFromClass(@PathParam("cId") String cId) {
-		return service.getAllTraineesFromClass(cId);
+	public String getAllClasses() {
+		return service.getAllClasses();
 	}
 
-	@Path("/createAccount")
+	@Path("/createClass")
 	@POST
 	@Produces({ "application/json" })
-	public String createTrainee(String trainee) {
-		return service.createTrainee(trainee);
+	public String createClass(String trainee) {
+		return service.createClass(trainee);
 	}
 
-	@Path("/deleteAccount/{id}")
+	@Path("/deleteClass/{id}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteTrainee(@PathParam("id") int id) {
-		return service.deleteTrainee(id);
+	public String deleteClass(@PathParam("id") int id) {
+		return service.deleteClass(id);
 	}
 	
-	@Path("/updateAccount/{id}")
+	@Path("/updateClass/{id}")
 	@PUT
 	@Produces({ "application/json" })
-	public String updateTrainee(@PathParam("id") int id, String trainee) {
-		return service.updateTrainee(id, trainee);
+	public String updateClass(@PathParam("id") int id, String clas) {
+		return service.updateClass(id, clas);
 	}
 
-	public void setService(TraineeService service) {
+	public void setService(ClassService service) {
 		this.service = service;
 	}
 
